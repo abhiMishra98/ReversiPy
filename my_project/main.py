@@ -44,10 +44,10 @@ while(True):
         break
     turn = turn +1
     print("\n")
-    printGameBoard.print_board(gameBoard)
+    printGameBoard.print_board()
 
     playerCount = gameBoard.get_count()
-    print("Player1 = " + playerCount[0] +"\n"+"Player2 = "+ playerCount[1] + "\n")
+    print("Player1 = " + str(playerCount[0]) +"\n"+"Player2 = "+ str(playerCount[1]) + "\n")
     if(not player1CanMove or not player2CanMove):
         break
     else:

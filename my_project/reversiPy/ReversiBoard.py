@@ -46,8 +46,8 @@ class ReversiBoard:
                 opponentPlayer = 'W' if (currentPlayer == 'B') else 'B'
                 validDirections = []
                 for i in range(8):
-                        newRow = row_index + self.DIRECTIONS[i][0]
-                        newCol = column_index + self.DIRECTIONS[i][1]
+                        newRow = int(row_index) + self.DIRECTIONS[i][0]
+                        newCol = int(column_index) + self.DIRECTIONS[i][1]
 
                         opponentFound = False
 
@@ -66,8 +66,8 @@ class ReversiBoard:
                 return validDirections
         
         def sandwichCoins(self, rowIndex:int, columnIndex:int, turn:int, cellState:int):
-                newRow = rowIndex + self.DIRECTIONS[cellState][0]
-                newCol = columnIndex + self.DIRECTIONS[cellState][1]
+                newRow = int(rowIndex) + self.DIRECTIONS[cellState][0]
+                newCol = int(columnIndex) + self.DIRECTIONS[cellState][1]
 
                 currentPlayer = 'B' if (turn%2) == 0 else 'W'
 
@@ -85,8 +85,8 @@ class ReversiBoard:
 
                 if(not isValidSandwich):
                         return -1
-                newRow = rowIndex + self.DIRECTIONS[cellState][0]
-                newCol = columnIndex + self.DIRECTIONS[cellState][1]
+                newRow = int(rowIndex) + self.DIRECTIONS[cellState][0]
+                newCol = int(columnIndex) + self.DIRECTIONS[cellState][1]
 
                 while(self._board[newRow*8 + newCol] != currentPlayer):
                         self._board[newRow * 8 + newCol] = currentPlayer
@@ -98,9 +98,9 @@ class ReversiBoard:
         def setIndexState(self, rowIndex:int, columnIndex:int, turn:int):
                 validDirections = self.checkOppCoinInImmediateCell(rowIndex,columnIndex,turn)
                 currentPlayer = 'B' if (turn%2) == 0 else 'W'
-                index = (rowIndex * 8) + columnIndex
+                index = (int(rowIndex) * 8) + int(columnIndex)
 
-                if(not validDirections.empty()):
+                if(validDirections):
                         self._board[index] = currentPlayer
                         for direction in validDirections:
                                 self.sandwichCoins(rowIndex, columnIndex, turn, direction)
@@ -117,9 +117,3 @@ class ReversiBoard:
                                         if(self.checkOppCoinInImmediateCell(row,col,turn)):
                                                 return True
                 return False
-        
-
-
-                                
-                
-##CheckoppcoinInImmediatecell, sandwichcoins, canMove, setIndexState, 
