@@ -39,3 +39,11 @@ class ReversiBoard:
                 p1_coins = self._board.count(FieldState.PLAYER1.value)
                 p2_coins = self._board.count(FieldState.PLAYER2.value)
                 return [p1_coins,p2_coins]
+        
+        def checkOppCoinInImmediateCell(self, row_index:int, column_index:int, turn:int)
+                currentPlayer = 'B' if (n%2) == 0 else 'W'
+                opponentPlayer = 'W' if (currentPlayer == 'B') else 'B'
+                for i in range(8):
+                        newRow = row_index + DIRECTIONS[]
+                
+##CheckoppcoinInImmediatecell, sandwichcoins, canMove, setIndexState, 

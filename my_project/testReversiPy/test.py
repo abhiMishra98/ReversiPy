@@ -1,2 +1,0 @@
-def abhishek():
-    return "Sony"
