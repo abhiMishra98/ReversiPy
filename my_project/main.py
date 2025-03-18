@@ -30,8 +30,8 @@ while(True):
     if(posXAscii <= 47 or posXAscii >= 56 or posYAscii <= 47 or posYAscii >= 56):
         print("Invalid position. Please enter values between 0 and 7.\n")
         continue
-    occupied = gameBoard.get_index_state(posX,posY)
-    if(occupied != '*'):
+    occupied = gameBoard.get_index_state(int(posX),int(posY))
+    if(occupied.value != '*'):
         print("\n Index occupied by player" + occupied + ". Please enter a new position\n")
         continue
     else:
